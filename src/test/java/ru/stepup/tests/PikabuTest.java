@@ -53,8 +53,6 @@ public class PikabuTest {
 
         WebElement errorLoginMessage = driver.findElement(By.cssSelector("div[class=\"popup__container\"] span[class=\"auth__error auth__error_top\"]"));
 
-        driver.wait(5000);
-
         Assertions.assertTrue(errorLoginMessage.isDisplayed());
         Assertions.assertEquals("Ошибка. Вы ввели неверные данные авторизации", errorLoginMessage.getText());
     }
