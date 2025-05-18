@@ -10,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import ru.stepup.services.WebDriverFactory;
 
+@Deprecated
 public class GoogleSearchTest {
     WebDriver driver;
 
