@@ -5,11 +5,10 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import ru.stepup.services.WebDriverFactory;
+
+import java.time.Duration;
 
 public class PikabuTest {
     WebDriver driver;
@@ -17,6 +16,8 @@ public class PikabuTest {
     @BeforeEach
     void setUp() {
         driver = WebDriverFactory.createChromeDriver();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
     }
 
     @AfterEach
@@ -28,7 +29,7 @@ public class PikabuTest {
     @Test
     void testPikabu()  {
         driver.get("https://pikabu.ru/");
-        driver.manage().window().maximize();
+        driver.manage().window().setSize(new Dimension(1920, 1080));
 
         Assertions.assertEquals("https://pikabu.ru/", driver.getCurrentUrl());
 
